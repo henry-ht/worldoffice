@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [AccessGuard]
   },
   {
-    path: 'store-team/:id',
+    path: 'team/:id/edit',
     component: StoreTeamComponent,
     canActivate: [AccessGuard]
   },

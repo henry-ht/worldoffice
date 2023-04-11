@@ -1,31 +1,88 @@
+<section class="row mt-5 justify-content-between" >
+  <div class="ps-md-3 pt-md-3 pe-md-3 mb-3 col-md-8">
+    <div class="card">
+      <h5 class="card-header">{{mode}} team</h5>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="TeamForm" name="TeamForm" >
+          <div class="row mt-5 ">
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" placeholder="Nombre" class="form-control" formControlName="name" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['name'].dirty && isValid()['name'].errors }" >
+                  <small *ngIf="isValid()['name'].errors && isValid()['name'].dirty" class="form-text text-muted">
+                      nombre es requerido
+                  </small>
+              </div>
 
-<div class="ps-md-3 pt-md-3 pe-md-3 mb-5">
-  <div class="card">
-    <h5 class="card-header">Teams</h5>
-    <div class="card-body">
-      <form (ngSubmit)="onSubmit()" [formGroup]="TeamForm" name="TeamForm" >
-        <h1 class="text-center">
-          Login
-        </h1>
-        <div class="form-group mt-5 mb-3">
-            <label for="emailLogin">Email</label>
-            <input type="email" [ngClass]="{ 'is-invalid': isValid()['email'].dirty && isValid()['email'].errors }" class="form-control" id="emailLogin" formControlName="email" [readonly]="loadPage" aria-describedby="emailHelp" placeholder="Email">
-            <small *ngIf="isValid()['email'].errors && isValid()['email'].dirty" id="emailHelp" class="form-text text-muted">
-                Email es requerido
-            </small>
-        </div>
-        <div class="form-group mb-4">
-            <label for="passwordLogin">Contraseña</label>
-            <input type="password" [ngClass]="{ 'is-invalid': isValid()['password'].dirty && isValid()['password'].errors }" autocomplete="off" class="form-control"  [readonly]="loadPage" formControlName="password" aria-describedby="passwordlHelp" id="passwordLogin" placeholder="Contraseña">
-            <small *ngIf="isValid()['password'].errors && isValid()['password'].dirty" id="passwordlHelp" class="form-text text-muted">
-                La contraseña es requerida
-            </small>
-        </div>
-        <button type="submit" class="btn btn-outline-info w-100" [disabled]="TeamForm.invalid || loadPage" >
-            <fa-icon *ngIf="!loadPage" [icon]="iconSent"></fa-icon>
-            <img src="assets/img/load/arrow.gif"  *ngIf="loadPage" alt="icono de carga" class="animated_animated animated_fadeIn img-fluid icon-load-mini" >
-        </button>
-      </form>
+              <div class="form-group mb-4">
+                  <label for="stadium">Estadio</label>
+                  <input type="text" placeholder="Nombre del Estadio" autocomplete="off" class="form-control"  [readonly]="loadPage" formControlName="stadium" [ngClass]="{ 'is-invalid': isValid()['stadium'].dirty && isValid()['stadium'].errors }" >
+                  <small *ngIf="isValid()['stadium'].errors && isValid()['stadium'].dirty" class="form-text text-muted">
+                      requerido
+                  </small>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="website">Sitio web</label>
+                <input type="url" placeholder="https://sitio.com" class="form-control" formControlName="website" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['website'].dirty && isValid()['website'].errors }" >
+                <small *ngIf="isValid()['website'].errors && isValid()['website'].dirty" class="form-text text-muted">
+                    requerido
+                </small>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="nationality">Nacionalidad</label>
+                <input type="text" placeholder="Colombia" class="form-control" formControlName="nationality" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['nationality'].dirty && isValid()['nationality'].errors }" >
+                <small *ngIf="isValid()['nationality'].errors && isValid()['nationality'].dirty" class="form-text text-muted">
+                    requerido
+                </small>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="foundation_year">Fecha de fundacion</label>
+                <input type="date" placeholder="1987-08-06" class="form-control" formControlName="foundation_year" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['foundation_year'].dirty && isValid()['foundation_year'].errors }" >
+                <small *ngIf="isValid()['foundation_year'].errors && isValid()['foundation_year'].dirty" class="form-text text-muted">
+                    requerido
+                </small>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="trainer">Entrenador</label>
+                <input type="text" placeholder="nombre" class="form-control" formControlName="trainer" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['trainer'].dirty && isValid()['trainer'].errors }" >
+                <small *ngIf="isValid()['trainer'].errors && isValid()['trainer'].dirty" class="form-text text-muted">
+                    requerido
+                </small>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="capacity">Capacidad</label>
+                <input type="number" placeholder="178998" class="form-control" formControlName="capacity" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['capacity'].dirty && isValid()['capacity'].errors }" >
+                <small *ngIf="isValid()['capacity'].errors && isValid()['capacity'].dirty" class="form-text text-muted">
+                    requerido
+                </small>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="value">Valor</label>
+                <input type="number" placeholder="8788.00" class="form-control" formControlName="value" [readonly]="loadPage" [ngClass]="{ 'is-invalid': isValid()['value'].dirty && isValid()['value'].errors }" >
+                <small *ngIf="isValid()['value'].errors && isValid()['value'].dirty" class="form-text text-muted">
+                    requerido
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-outline-info w-100" [disabled]="TeamForm.invalid || loadPage" >
+                  <fa-icon *ngIf="!loadPage" [icon]="iconSent"></fa-icon>
+                  <img src="assets/img/load/arrow.gif" *ngIf="loadPage" alt="icono de carga" class="animated_animated animated_fadeIn img-fluid icon-load-mini" >
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</section>

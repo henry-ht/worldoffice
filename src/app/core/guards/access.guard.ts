@@ -22,8 +22,8 @@ export class AccessGuard implements CanActivate {
           if(isOk){
             return true;
           }else{
-            return true;
-            // return this.router.parseUrl('/login');
+            // return true;
+            return this.router.parseUrl('/login');
           }
         })
       );

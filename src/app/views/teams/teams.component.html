@@ -1,65 +1,49 @@
 
-<div class="ps-md-3 pt-md-3 pe-md-3 mb-5">
-  <div class="card">
-    <h5 class="card-header">Teams</h5>
-    <div class="card-body">
-      <div class="table-responsive mt-3">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Estadio</th>
-              <th scope="col">Sitio Web</th>
-              <th scope="col">Estadio</th>
-              <th scope="col">Nacionalidad</th>
-              <th scope="col">Año de Fundación</th>
-              <th scope="col">Entrenador</th>
-              <th scope="col">Capacidad</th>
-              <th scope="col">Valor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-              <td>Otto</td>
-            </tr>
-          </tbody>
-        </table>
+<section class="row mt-5 justify-content-between" >
+  <div class="col-md-12 ps-md-3 pt-md-3 pe-md-3 mb-5">
+    <div class="card">
+      <h5 class="card-header">Teams</h5>
+      <div class="card-body">
+        <div class="table-responsive mt-3">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Estadio</th>
+                <th scope="col">Sitio Web</th>
+                <th scope="col">Nacionalidad</th>
+                <th scope="col">Año de Fundación</th>
+                <th scope="col">Entrenador</th>
+                <th scope="col">Capacidad</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let team of teams">
+                <th scope="row">{{ team.id}}</th>
+                <td>
+                  {{ team.name}}
+                </td>
+                <td>{{team.stadium}}</td>
+                <td>{{team.website}}</td>
+                <td>{{team.nationality}}</td>
+                <td>{{team.foundation_year}}</td>
+                <td>{{team.trainer}}</td>
+                <td>{{team.capacity}}</td>
+                <td>{{team.value}}</td>
+                <td>
+                  <a [routerLink]="['/team', team.id, 'edit']" class="btn btn-success" >Edit</a>
+                  <button (click)="delete(team.id)" class="btn btn-danger" >Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 

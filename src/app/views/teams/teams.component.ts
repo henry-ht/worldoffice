@@ -17,17 +17,31 @@ export class TeamsComponent {
   constructor(private router:Router, private request: RequestService, private noti:NotificationService) {}
 
   ngOnInit(): void {
-    // this.get();
+    this.get();
   }
 
   get(){
     this.loadPage = true;
     this.teams = [];
-    this.request.get('search')
+    this.request.get('team')
     .subscribe({
       next: (data:any)=> {
         if (data.status === 'success') {
           this.teams = data.data;
+        }
+      },
+      error: () => { this.loadPage = false},
+      complete: () => {this.loadPage = false}
+    });
+  }
+
+  delete(id:number){
+    this.loadPage = true;
+    this.request.delete('team/'+id)
+    .subscribe({
+      next: (data:any)=> {
+        if (data.status === 'success') {
+          this.get();
         }
       },
       error: () => { this.loadPage = false},

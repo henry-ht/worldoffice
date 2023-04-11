@@ -19,8 +19,8 @@ export class AuthGuard implements CanActivate {
       take(1),
       map((isOk:boolean) => {
         if(isOk){
-          return true;
-          // return this.router.parseUrl('/teams');
+          // return true;
+          return this.router.parseUrl('/teams');
         }else{
           return true;
         }

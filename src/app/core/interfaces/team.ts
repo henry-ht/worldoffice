@@ -2,12 +2,12 @@ import { DecimalPipe } from "@angular/common";
 
 export interface Team {
   id: number,
-  Nombre: String,
-  Estadio: String,
-  "Sitio Web": String,
-  Nacionalidad: String,
-  "Año de Fundación": Number,
-  Entrenador: String,
-  Capacidad: number,
-  Valor: DecimalPipe,
+  name: String,
+  stadium: String,
+  website: String,
+  nationality: String,
+  foundation_year: Number,
+  trainer: String,
+  capacity: number,
+  value: DecimalPipe,
 }
